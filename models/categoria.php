@@ -49,8 +49,81 @@
 
         }
 
+        // Crear categoria
+        public function crear(){
+            // Crear query
+            $query = 'INSERT INTO ' . $this->table . ' (nombre)VALUE(:nombre)';
+
+            // Preparar la sentencia
+            $stmt = $this->conn->prepare($query);
+
+            // Limpiar datos
+            $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+
+            // Vincular un parametro
+            $stmt->bindParam(':nombre', $this->nombre);
+
+            // Ejecutar query
+            if($stmt->execute()){
+                return true;
+            }
+
+            // If Error
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+
+        }
+
+        // Actualizar categoria
+        public function actualizar(){
+            // Crear query
+            $query = 'UPDATE ' . $this->table . ' SET nombre = :nombre WHERE id = :id';
+
+            // Preparar la sentencia
+            $stmt = $this->conn->prepare($query);
+
+            // Limpiar datos
+            $this->nombre = htmlspecialchars(strip_tags($this->nombre));
+            $this->id = htmlspecialchars(strip_tags($this->id));
+
+            // Vincular un parametro
+            $stmt->bindParam(':nombre', $this->nombre);
+            $stmt->bindParam(':id', $this->id);
+
+            // Ejecutar query
+            if($stmt->execute()){
+                return true;
+            }
+
+            // If Error
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+
+        }
+
+        // Borrar categoria
+        public function borrar(){
+            // Crear query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+            // Preparar la sentencia
+            $stmt = $this->conn->prepare($query);
+
+            // Limpiar datos
+            $this->id = htmlspecialchars(strip_tags($this->id));
+
+            // Vincular un parametro
+            $stmt->bindParam(':id', $this->id);
+
+            // Ejecutar query
+            if($stmt->execute()){
+                return true;
+            }
+
+            // If Error
+            printf("Error: $s.\n", $stmt->error);
+            return false;
+
+        }
+
     }
-
-
-
-?>
