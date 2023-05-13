@@ -64,7 +64,7 @@
         // Crear producto
         public function crear(){
             // Crear query
-            $query = 'INSERT INTO ' . $this->table . ' (titulo, texto, categoria_id)VALUE(:titulo, :texto, :categoria_id)';
+            $query = 'INSERT INTO ' . $this->table . ' (titulo, texto, categoria_id)VALUES(:titulo, :texto, :categoria_id)';
 
             // Preparar la sentencia
             $stmt = $this->conn->prepare($query);
