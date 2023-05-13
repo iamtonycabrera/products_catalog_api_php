@@ -5,7 +5,7 @@
     header('Content-Type: application/json');
 
     include_once '../../config/basemysql.php';
-    include_once '../../models/productos.php';
+    include_once '../../models/producto.php';
 
     // Instanciar la db y conexion
     $basedatos = new Basemysql();
