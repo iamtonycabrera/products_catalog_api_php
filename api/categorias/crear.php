@@ -22,7 +22,7 @@ $categoria->nombre = $data->nombre;
 
 // Crear categoria
 if ($categoria->crear()) {
-    echo json_encode(array('message' => 'Categoria creada'));
+    echo json_encode(array('message' => 'Categoria creada', 'nombre' => $categoria->nombre));
 } else {
     echo json_encode(array('message' => 'Categoria no creada'));
 }
