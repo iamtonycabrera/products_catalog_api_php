@@ -85,7 +85,7 @@
             }
 
             // If Error
-            printf("Error: $s.\n", $stmt->error);
+            printf("Error: n", $stmt->error);
             return false;
 
         }
@@ -116,7 +116,7 @@
             }
 
             // If Error
-            printf("Error: $s.\n", $stmt->error);
+            printf("Error: n", $stmt->error);
             return false;
 
         }
@@ -141,7 +141,7 @@
             }
 
             // If Error
-            printf("Error: $s.\n", $stmt->error);
+            printf("Error: ", $stmt->error);
             return false;
 
         }
