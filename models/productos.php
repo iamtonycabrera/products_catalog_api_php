@@ -21,8 +21,8 @@
         public function leer(){
             // Crear query
             $query = 'SELECT c.nombre 
-            AS nombre_categoria, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
-            FROM ' . $this->table . ' LEFT JOIN categorias c ON p.categoria_id = c.id 
+            AS categoria_nombre, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
+            FROM ' . $this->table . ' p LEFT JOIN categorias c ON p.categoria_id = c.id 
             ORDER BY p.fecha_creacion DESC';
             
             // Preparar la sentencia
@@ -37,7 +37,7 @@
         public function leer_individual(){
             // Crear query
             $query = 'SELECT c.nombre 
-            AS nombre_categoria, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
+            AS categoria_nombre, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
             FROM ' . $this->table . ' LEFT JOIN categorias c ON p.categoria_id = c.id 
             WHERE p.id = ? LIMIT 0,1';
             
