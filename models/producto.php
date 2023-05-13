@@ -21,8 +21,8 @@
         public function leer(){
             // Crear query
             $query = 'SELECT c.nombre 
-            AS nombre_categoria, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
-            FROM ' . $this->table . ' LEFT JOIN categorias c ON p.categoria_id = c.id 
+            AS categoria_nombre, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
+            FROM ' . $this->table . ' p LEFT JOIN categorias c ON p.categoria_id = c.id 
             ORDER BY p.fecha_creacion DESC';
             
             // Preparar la sentencia
@@ -37,8 +37,8 @@
         public function leer_individual(){
             // Crear query
             $query = 'SELECT c.nombre 
-            AS nombre_categoria, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
-            FROM ' . $this->table . ' LEFT JOIN categorias c ON p.categoria_id = c.id 
+            AS categoria_nombre, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
+            FROM ' . $this->table . ' p LEFT JOIN categorias c ON p.categoria_id = c.id 
             WHERE p.id = ? LIMIT 0,1';
             
             // Preparar la sentencia
@@ -64,7 +64,7 @@
         // Crear producto
         public function crear(){
             // Crear query
-            $query = 'INSERT INTO ' . $this->table . ' (titulo, texto, categoria_id)VALUE(:titulo, :texto, :categoria_id)';
+            $query = 'INSERT INTO ' . $this->table . ' (titulo, texto, categoria_id)VALUES(:titulo, :texto, :categoria_id)';
 
             // Preparar la sentencia
             $stmt = $this->conn->prepare($query);
@@ -93,7 +93,7 @@
         // Actualizar producto
         public function actualizar(){
             // Crear query
-            $query = 'UPDATE ' . $this->table . ' SET titulo = :titulo, texto = :texto, categori_id = :categoria_id WHERE id = :id';
+            $query = 'UPDATE ' . $this->table . ' SET titulo = :titulo, texto = :texto, categoria_id = :categoria_id WHERE id = :id';
 
            // Preparar la sentencia
            $stmt = $this->conn->prepare($query);
