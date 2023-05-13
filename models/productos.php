@@ -38,7 +38,7 @@
             // Crear query
             $query = 'SELECT c.nombre 
             AS categoria_nombre, p.id, p.categoria_id, p.titulo, p.texto, p.fecha_creacion 
-            FROM ' . $this->table . ' LEFT JOIN categorias c ON p.categoria_id = c.id 
+            FROM ' . $this->table . ' p LEFT JOIN categorias c ON p.categoria_id = c.id 
             WHERE p.id = ? LIMIT 0,1';
             
             // Preparar la sentencia
